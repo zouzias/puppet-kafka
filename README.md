@@ -39,6 +39,29 @@ To install a new kafka broker:
 ```puppet
    class { 'kafka::broker': }
 ```
+
+To install a kafka cluster using Zookeeper:
+
+```node 'kafka-broker1' {
+        class { 'kafka::broker':
+           config => { 'broker.id' => '0', 'zookeeper.connect' => 'zk1.example.com:2180,zk2.example.com:2180,zk3.example.com:2180' }
+        }
+}
+
+node 'kafka-broker2' {
+        class { 'kafka::broker':
+           config => { 'broker.id' => '1', 'zookeeper.connect' => 'zk1.example.com:2180,zk2.example.com:2180,zk3.example.com:2180' }
+        }
+}
+
+node 'kafka-broker3' {
+        class { 'kafka::broker':
+           config => { 'broker.id' => '2', 'zookeeper.connect' => 'zk1.example.com:2180,zk2.example.com:2180,zk3.example.com:2180' }
+        }
+}
+
+```
+
 ##Usage
 
 ###Classes and Defined Types

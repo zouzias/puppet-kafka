@@ -42,7 +42,8 @@ To install a new kafka broker:
 
 To install a kafka cluster using Zookeeper:
 
-```node 'kafka-broker1' {
+```
+node 'kafka-broker1' {
         class { 'kafka::broker':
            config => { 'broker.id' => '0', 'zookeeper.connect' => 'zk1.example.com:2180,zk2.example.com:2180,zk3.example.com:2180' }
         }
@@ -59,7 +60,6 @@ node 'kafka-broker3' {
            config => { 'broker.id' => '2', 'zookeeper.connect' => 'zk1.example.com:2180,zk2.example.com:2180,zk3.example.com:2180' }
         }
 }
-
 ```
 
 ##Usage
